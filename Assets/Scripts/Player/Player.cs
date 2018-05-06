@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
     public int fallBoundary = -10;
 
+    [HideInInspector]
     public PlayerStates currentState = PlayerStates.Normal;
 
     public PlayerStats stats = new PlayerStats();
@@ -67,6 +68,8 @@ public class Player : MonoBehaviour
     public Color bouncyColor;
     public Color hardColor;
     private Light pointLight;
+
+    public Material backCubes;
 
     private void Start()
     {
@@ -106,6 +109,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<SphereCollider>().material = playerPhysics;
         GetComponent<PlayerMovement>().jumpForce = 350.0f;
         stats.maxHealth = 100;
+        backCubes.color = normalColor;
     }
 
     void Bouncy()
@@ -115,6 +119,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<SphereCollider>().material = bouncyPhysics;
         GetComponent<PlayerMovement>().jumpForce = 250.0f;
         stats.maxHealth = 5;
+        backCubes.color = bouncyColor;
     }
 
     void Hard()
@@ -124,6 +129,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<SphereCollider>().material = playerPhysics;
         GetComponent<PlayerMovement>().jumpForce = 350.0f;
         stats.maxHealth = 100;
+        backCubes.color = hardColor;
     }
 
     public void DamagePlayer(int damage)
@@ -172,6 +178,7 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
+        backCubes.color = normalColor;
         if (PlayerPrefs.GetInt("HighScore") < stats.CurScore)
         {
             PlayerPrefs.SetInt("HighScore", stats.CurScore);

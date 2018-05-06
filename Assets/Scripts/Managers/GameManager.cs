@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
 
+    public Text livesText;
+
     //Sound
     AudioManager audioManager;
     public string gameOverSound;
@@ -80,12 +83,14 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator _RespawnPlayer()
     {
+        livesText.text = "Souls x" + RemainingLives;
         yield return new WaitForSeconds(spawnDelay);
 
         audioManager.PlaySound(playerRespawn);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
         Destroy(clone.gameObject, 3f);
+        livesText.text = "";
     }
 
     public static void KillPlayer(Player player)

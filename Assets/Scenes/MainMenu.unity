@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114868216824442126, guid: 0ce53cfa55c96554983d2347c7b7c9da,
+        type: 2}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ce53cfa55c96554983d2347c7b7c9da, type: 2}
   m_IsPrefabParent: 0

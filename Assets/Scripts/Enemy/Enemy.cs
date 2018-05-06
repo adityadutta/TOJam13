@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour {
     {
         public int damage;
 
-       public bool isDead;
+        [HideInInspector]
+        public bool isDead;
 
         public void Init()
         {

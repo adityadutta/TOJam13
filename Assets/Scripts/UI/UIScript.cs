@@ -13,7 +13,6 @@ public class UIScript : MonoBehaviour {
     public Text scoreText;
     public Text coinText;
     public Text timeText;
-
    
 
     private void Awake()
