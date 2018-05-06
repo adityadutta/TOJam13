@@ -111,3 +111,4 @@ MonoBehaviour:
   door: {fileID: 0}
   doorHeight: {x: 0, y: 10, z: 0}
   doorLiftSpeed: 0.5
+  doorSwitchSound: DoorSwitch

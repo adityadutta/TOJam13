@@ -14,9 +14,14 @@ public class PlayerMovement : MonoBehaviour {
     public bool grounded = true;
     public float jumpForce = 300.0f;
 
+    //sound
+    AudioManager audioManager;
+    public string jumpSound;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioManager = AudioManager.Instance;
     }
 
     private void FixedUpdate()
@@ -30,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (Input.GetButtonDown("Jump"))
             {
+                audioManager.PlaySound(jumpSound);
                 rb.AddForce(Vector3.up * jumpForce);
                 grounded = false;
             }      

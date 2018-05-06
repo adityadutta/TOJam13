@@ -79,21 +79,8 @@ public class Player : MonoBehaviour
         if (transform.position.y <= fallBoundary)
             DamagePlayer(9999);
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            if (GameManager.Instance.isNormal)
-                currentState = PlayerStates.Normal;
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (GameManager.Instance.isBouncy)
-                currentState = PlayerStates.Bouncy;
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (GameManager.Instance.isHard)
-                currentState = PlayerStates.Hard;
-        }
+        if (Input.GetButtonDown("ChangeState"))
+            ToggleStates();
 
         switch (currentState)
         {
@@ -118,6 +105,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().mass = 1.0f;
         gameObject.GetComponent<SphereCollider>().material = playerPhysics;
         GetComponent<PlayerMovement>().jumpForce = 350.0f;
+        stats.maxHealth = 100;
     }
 
     void Bouncy()
@@ -126,6 +114,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().mass = 0.5f;
         gameObject.GetComponent<SphereCollider>().material = bouncyPhysics;
         GetComponent<PlayerMovement>().jumpForce = 250.0f;
+        stats.maxHealth = 5;
     }
 
     void Hard()
@@ -134,6 +123,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().mass = heavyMass;
         gameObject.GetComponent<SphereCollider>().material = playerPhysics;
         GetComponent<PlayerMovement>().jumpForce = 350.0f;
+        stats.maxHealth = 100;
     }
 
     public void DamagePlayer(int damage)
@@ -154,7 +144,37 @@ public class Player : MonoBehaviour
         else if(stats.CurHealth < stats.maxHealth)
         {
             pointLight.color = Color.red;
-            pointLight.intensity = 200.0f/stats.CurHealth;
+            pointLight.intensity = 300.0f/stats.CurHealth;
+        }
+    }
+
+    void ToggleStates()
+    {
+        if(currentState == PlayerStates.Normal)
+        {
+            if (GameManager.Instance.isHard)
+                currentState = PlayerStates.Hard;
+            else
+                currentState = PlayerStates.Normal;
+        }
+        else if (currentState == PlayerStates.Hard)
+        {
+            if (GameManager.Instance.isBouncy)
+                currentState = PlayerStates.Bouncy;
+            else
+                currentState = PlayerStates.Normal;
+        }
+        else if (currentState == PlayerStates.Bouncy)
+        {
+            currentState = PlayerStates.Normal;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (PlayerPrefs.GetInt("HighScore") < stats.CurScore)
+        {
+            PlayerPrefs.SetInt("HighScore", stats.CurScore);
         }
     }
 

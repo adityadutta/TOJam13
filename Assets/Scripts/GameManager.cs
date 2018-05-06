@@ -30,32 +30,72 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public int spawnDelay = 2;
     public Transform spawnPrefab;
-    //[SerializeField]
-    //private GameObject gameOverUI;
+    [SerializeField]
+    private GameObject gameOverUI;
+
+    private float startTime;
+    [HideInInspector]
+    public float roundDuration;
+    [HideInInspector]
+    public string minutes;
+    [HideInInspector]
+    public string seconds;
+
+    public bool isGameOver = false;
+
+    //Sound
+    AudioManager audioManager;
+    public string gameOverSound;
+    public string playerDeath;
+    public string enemyDeath;
+    public string playerRespawn;
 
     private void Start()
     {
         _remainingLives = maxLives;
+        Time.timeScale = 1;
+        startTime = Time.time;
 
+        audioManager = AudioManager.Instance;
+    }
+
+    private void Update()
+    {
+        UpdateTime();
     }
 
     public void EndGame()
     {
+        isGameOver = true;
+        audioManager.PlaySound(gameOverSound);
         Debug.Log("GAME OVER");
-        //gameOverUI.SetActive(true);
+        gameOverUI.SetActive(true);
+        float bestTime = PlayerPrefs.GetFloat("BestTime");
+        if (roundDuration < bestTime || bestTime == 0.0f)
+        {
+            PlayerPrefs.SetFloat("BestTime", roundDuration);
+        }
+        Time.timeScale = 0;
     }
 
     public IEnumerator _RespawnPlayer()
     {
         yield return new WaitForSeconds(spawnDelay);
 
+        audioManager.PlaySound(playerRespawn);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
-        //Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
-        //Destroy(clone.gameObject, 3f);
+        Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
+        Destroy(clone.gameObject, 3f);
     }
 
     public static void KillPlayer(Player player)
     {
+        Instance._KillPlayer(player);
+    }
+
+    public void _KillPlayer(Player player)
+    {
+        audioManager.PlaySound(playerDeath);
         Destroy(player.gameObject);
         _remainingLives -= 1;
         if (_remainingLives <= 0)
@@ -68,6 +108,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    private void UpdateTime()
+    {
+        roundDuration = Time.time - startTime;
+        minutes = ((int)roundDuration / 60).ToString("00");
+        seconds = (roundDuration % 60).ToString("00.00");
+    }
+
     public static void KillEnemy(Enemy enemy)
     {
         Instance._KillEnemy(enemy);
@@ -75,9 +123,10 @@ public class GameManager : MonoBehaviour
 
     public void _KillEnemy(Enemy _enemy)
     {
-       // Transform _clone = Instantiate(_enemy.deathParticles, _enemy.transform.position, Quaternion.identity) as Transform;
+        audioManager.PlaySound(enemyDeath);
+        Transform _clone = Instantiate(_enemy.enemyDeathParticles, _enemy.transform.position, Quaternion.identity) as Transform;
         Destroy(_enemy.gameObject);
-       // Destroy(_clone.gameObject, 3f);
+        Destroy(_clone.gameObject, 3f);
     }
 }
 

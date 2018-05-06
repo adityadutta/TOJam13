@@ -163,6 +163,8 @@ MonoBehaviour:
   stats:
     damage: 10
     isDead: 0
+  enemyDeathParticles: {fileID: 4059802283184798, guid: 6fec65eed37404b4bbc399b95c3a4815,
+    type: 2}
 --- !u!114 &114372473339047848
 MonoBehaviour:
   m_ObjectHideFlags: 1

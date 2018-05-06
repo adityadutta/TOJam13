@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class DiamondScript : MonoBehaviour {
 
-    public int points;
+    public int points = 200;
 
+    //sound
+    AudioManager audioManager;
+    public string coinSound;
+
+    private void Awake()
+    {
+        audioManager = AudioManager.Instance;
+    }
     private void Update()
     {
         transform.Rotate(new Vector3(45.0f, 0.0f, 45.0f) * Time.deltaTime);
@@ -15,6 +23,10 @@ public class DiamondScript : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
+            audioManager.PlaySound(coinSound);
+            Player player = other.GetComponent<Player>();
+            player.stats.CurCoins++;
+            player.stats.CurScore += points;
             Destroy(this.gameObject);
         }
     }

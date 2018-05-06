@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1094455740107178}
+  m_IsPrefabParent: 1
+--- !u!1 &1094455740107178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4904459274361830}
+  - component: {fileID: 114868216824442126}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4904459274361830
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094455740107178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 511.77872, y: 304.38947, z: -5.122474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114868216824442126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094455740107178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bd994ff84bacc4fa11f2d27e2ff01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MainTrack
+    clip: {fileID: 8300000, guid: 5126b7ea8c27ad54daf116096665af0f, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: Jump
+    clip: {fileID: 8300000, guid: 127cbb3597250f74ea1a5ea7ccf72b80, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.25
+    randomPitch: 0
+    loop: 0
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 2b76a2516df0aee49a9cc5b9cb7a7a89, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 3fb0c1caf7fbd98459b4833418fc051d, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 4917463b694760f4e8e6699b58c828d1, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Hard
+    clip: {fileID: 8300000, guid: 533875d282b47ce4ea59cbbe2eba676a, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Bouncy
+    clip: {fileID: 8300000, guid: 15505d091d995264abdc069361ecc456, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: BreakWall
+    clip: {fileID: 8300000, guid: 673f8a5b53ab269489f7a413052e9604, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: PlayerRespawn
+    clip: {fileID: 8300000, guid: 4a8bbd57b6187c145b5e396c317ad351, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: CoinSound
+    clip: {fileID: 8300000, guid: 3fb1432bddc1f7345962e967ca923127, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: DoorSwitch
+    clip: {fileID: 8300000, guid: 7eafadd230b37c044a252a39bfc5bd30, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Spring
+    clip: {fileID: 8300000, guid: c528125e81896404b8a39a7d189f940a, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Dialogue
+    clip: {fileID: 8300000, guid: e8f2bfe3432102543b227e60f594e0ad, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0

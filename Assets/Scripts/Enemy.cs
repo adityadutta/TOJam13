@@ -20,10 +20,7 @@ public class Enemy : MonoBehaviour {
 
     public EnemyStats stats = new EnemyStats();
 
-    private void Awake()
-    {
- 
-    }
+    public Transform enemyDeathParticles;
 
     private void Start()
     {
@@ -39,9 +36,9 @@ public class Enemy : MonoBehaviour {
     }
 
     public void Die()
-    {
+    {      
         GetComponent<EnemyAI>().currentState = States.Idle;
         GetComponent<CapsuleCollider>().enabled = false;
-        Destroy(gameObject, 1f);
+        GameManager.KillEnemy(this);
     }
 }

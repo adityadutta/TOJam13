@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour {
     {
         if (instance == null)
             instance = this;
+
+        audioManager = AudioManager.Instance;
     }
 
     public Text nameText;
@@ -19,8 +21,12 @@ public class DialogueManager : MonoBehaviour {
 
     public Queue<string> sentences;
 
-	// Use this for initialization
-	void Start ()
+    //sound
+    AudioManager audioManager;
+    public string dialogueSound;
+
+    // Use this for initialization
+    void Start ()
     {
         sentences = new Queue<string>();
 	}
@@ -28,11 +34,15 @@ public class DialogueManager : MonoBehaviour {
     private void Update()
     {
         if (Input.anyKeyDown)
+        {
             DisplayNextSentence();
+        }
+          
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        audioManager.PlaySound(dialogueSound);
         dialogueBoxAnim.SetBool("isOpen", true);
 
         nameText.text = dialogue.name;
@@ -54,6 +64,8 @@ public class DialogueManager : MonoBehaviour {
             EndDialogue();
             return;
         }
+
+        audioManager.PlaySound(dialogueSound);
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
