@@ -71,10 +71,17 @@ public class Player : MonoBehaviour
 
     public Material backCubes;
 
+    //sound
+    AudioManager audioManager;
+    public string hurt;
+    //public string hard;
+
     private void Start()
     {
         stats.Init();
         pointLight = GetComponentInChildren<Light>();
+
+       audioManager = AudioManager.Instance;
     }
 
     private void Update()
@@ -118,7 +125,7 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().mass = 0.5f;
         gameObject.GetComponent<SphereCollider>().material = bouncyPhysics;
         GetComponent<PlayerMovement>().jumpForce = 250.0f;
-        stats.maxHealth = 5;
+        stats.maxHealth = 1;
         backCubes.color = bouncyColor;
     }
 
@@ -134,6 +141,7 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        audioManager.PlaySound(hurt);
         stats.CurHealth -= damage;
         if (stats.CurHealth <= 0)
         {
@@ -179,10 +187,6 @@ public class Player : MonoBehaviour
     private void OnDestroy()
     {
         backCubes.color = normalColor;
-        if (PlayerPrefs.GetInt("HighScore") < stats.CurScore)
-        {
-            PlayerPrefs.SetInt("HighScore", stats.CurScore);
-        }
     }
 
 }

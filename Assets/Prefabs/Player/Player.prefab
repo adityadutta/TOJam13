@@ -190,6 +190,7 @@ MonoBehaviour:
   bouncyColor: {r: 0.9716981, g: 0.34721437, b: 0, a: 0}
   hardColor: {r: 0.38679248, g: 0.36672306, b: 0.36672306, a: 0}
   backCubes: {fileID: 2100000, guid: 61ce00568179f6a48b6f302432250215, type: 2}
+  hurt: Hurt
 --- !u!114 &114967877481701384
 MonoBehaviour:
   m_ObjectHideFlags: 1

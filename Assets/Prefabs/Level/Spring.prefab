@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 650
-  springSound: 
+  springSound: Spring
 --- !u!136 &136257454107347820
 CapsuleCollider:
   m_ObjectHideFlags: 1

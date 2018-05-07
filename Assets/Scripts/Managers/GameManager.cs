@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     //Sound
     AudioManager audioManager;
-    public string gameOverSound;
+   // public string gameOverSound;
     public string playerDeath;
     public string enemyDeath;
     public string playerRespawn;
@@ -70,13 +70,18 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         isGameOver = true;
-        audioManager.PlaySound(gameOverSound);
+        //audioManager.PlaySound(gameOverSound);
         Debug.Log("GAME OVER");
         gameOverUI.SetActive(true);
         float bestTime = PlayerPrefs.GetFloat("BestTime");
         if (roundDuration < bestTime || bestTime == 0.0f)
         {
             PlayerPrefs.SetFloat("BestTime", roundDuration);
+        }
+        int score = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().stats.CurScore;
+        if (PlayerPrefs.GetInt("HighScore") < score)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
         }
         Time.timeScale = 0;
     }

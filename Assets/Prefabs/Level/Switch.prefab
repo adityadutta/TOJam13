@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23321971887780610}
   - component: {fileID: 65621920349722294}
   - component: {fileID: 114158258043645992}
+  - component: {fileID: 114247494236302124}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343568064866916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.246, y: 7.83, z: -0.127}
+  m_LocalPosition: {x: 20.246, y: 8.02, z: -0.127}
   m_LocalScale: {x: 1, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +110,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  doorHeight: {x: 0, y: 10, z: 0}
+  doorHeight: {x: 0, y: 3, z: 0}
   doorLiftSpeed: 0.5
   doorSwitchSound: DoorSwitch
+--- !u!114 &114247494236302124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343568064866916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992efeafb459529479f5a4e8233500a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mystiq
+    sentences:
+    - Good job!
+    - You found the switch.
+    - Open Sesame...

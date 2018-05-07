@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour
 
     bool isMenu = true;
     bool isGame = false;
+    bool isInfo = false;
+
+    public GameObject infoPanel;
 
     // Update is called once per frame
     void Update()
@@ -40,6 +43,13 @@ public class LevelManager : MonoBehaviour
                 isGame = false;
                 SceneManager.LoadScene("MainMenu");
             }
+            else if (isInfo)
+            {
+                isMenu = true;
+                isGame = false;
+                isInfo = false;
+                infoPanel.SetActive(false);
+            }
             else
             {
                 Debug.Log("QUIT");
@@ -47,5 +57,11 @@ public class LevelManager : MonoBehaviour
             }
 
         }
+    }
+
+    public void Info()
+    {
+        isInfo = true;
+        infoPanel.SetActive(true);
     }
 }

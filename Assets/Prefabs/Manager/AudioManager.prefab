@@ -54,27 +54,27 @@ MonoBehaviour:
   sounds:
   - name: MainTrack
     clip: {fileID: 8300000, guid: 5126b7ea8c27ad54daf116096665af0f, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 1
   - name: Jump
-    clip: {fileID: 8300000, guid: 127cbb3597250f74ea1a5ea7ccf72b80, type: 3}
+    clip: {fileID: 8300000, guid: b63339da9eeff184995081a47522021e, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0.25
     randomPitch: 0
     loop: 0
   - name: PlayerDeath
-    clip: {fileID: 8300000, guid: 2b76a2516df0aee49a9cc5b9cb7a7a89, type: 3}
+    clip: {fileID: 8300000, guid: 6c7bbad3a620dc7499383dffff38aecc, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
   - name: EnemyDeath
-    clip: {fileID: 8300000, guid: 3fb0c1caf7fbd98459b4833418fc051d, type: 3}
+    clip: {fileID: 8300000, guid: a9959f63feb0c0c409b9a46814214d3b, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
@@ -88,14 +88,14 @@ MonoBehaviour:
     randomPitch: 0
     loop: 0
   - name: Hard
-    clip: {fileID: 8300000, guid: 533875d282b47ce4ea59cbbe2eba676a, type: 3}
+    clip: {fileID: 8300000, guid: 6c8295fb8cd253c46a7dfd799df4885a, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
   - name: Bouncy
-    clip: {fileID: 8300000, guid: 15505d091d995264abdc069361ecc456, type: 3}
+    clip: {fileID: 8300000, guid: 3c6d6253e5e651f45b31402e43b82de0, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
@@ -109,28 +109,28 @@ MonoBehaviour:
     randomPitch: 0
     loop: 0
   - name: PlayerRespawn
-    clip: {fileID: 8300000, guid: 4a8bbd57b6187c145b5e396c317ad351, type: 3}
+    clip: {fileID: 8300000, guid: 857a54fd08aea184b9a93f00f2bc2cef, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
   - name: CoinSound
-    clip: {fileID: 8300000, guid: 3fb1432bddc1f7345962e967ca923127, type: 3}
+    clip: {fileID: 8300000, guid: 8dd1f808b1ce5334eb46c2a0804ea11d, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
   - name: DoorSwitch
-    clip: {fileID: 8300000, guid: 7eafadd230b37c044a252a39bfc5bd30, type: 3}
+    clip: {fileID: 8300000, guid: a5e55dbb3ea539c4980a6be7f414640d, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
   - name: Spring
-    clip: {fileID: 8300000, guid: c528125e81896404b8a39a7d189f940a, type: 3}
+    clip: {fileID: 8300000, guid: 28799146d3afe9a46ae7464f7d3bbd8e, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
@@ -141,5 +141,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Hurt
+    clip: {fileID: 8300000, guid: d3f4260b6303fab41bf6bd623afc3bcd, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.5
     randomPitch: 0
     loop: 0
